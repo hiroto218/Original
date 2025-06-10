@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大谷高校 第◯◯回 学校祭 2025</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --info-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --dark-glass-bg: rgba(0, 0, 0, 0.1);
+            --dark-glass-border: rgba(0, 0, 0, 0.2);
+            
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b7280;
+            --text-light: rgba(255, 255, 255, 0.9);
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Glassmorphism Header */
+        header {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.5));
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section with Advanced Animations */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(1deg); }
+            66% { transform: translateY(-20px) rotate(-1deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .festival-date {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-2xl);
+            background: white;
+        }
+
+        .cta-button.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Modern Sections */
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-bg {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 2rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .section-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        }
+
+        .section-content {
+            padding: 80px 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Premium Event Grid */
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .event-card:hover::before {
+            left: 100%;
+        }
+
+        .event-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-2xl);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .event-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .event-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .event-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* Elegant Schedule */
+        .schedule-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .schedule-day {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .schedule-day:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .schedule-header {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .schedule-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+
+        .schedule-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .schedule-time {
+            font-weight: 700;
+            color: white;
+            font-size: 1.125rem;
+            min-width: 80px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem;
+            border-radius: 12px;
+            margin-right: 1.5rem;
+        }
+
+        .schedule-event h4 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+        }
+
+        .schedule-event p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Premium Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            transform: scaleX(0);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .info-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .info-card h3 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .info-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* Sophisticated Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-highlight {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .section-content {
+                padding: 60px 30px;
+            }
+
+            .event-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-container {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .schedule-time {
+                margin-right: 0;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🌸 大谷文化祭</div>
+            <ul class="nav-links">
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#events">イベント</a></li>
+                <li><a href="#schedule">スケジュール</a></li>
+                <li><a href="#info">開催情報</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-subtitle">OHTANI HIGH SCHOOL PRESENTS</div>
+            <h1>大谷祭 2025</h1>
+            <p class="hero-description">青春の輝きを、みんなで創ろう</p>
+            <div class="festival-date">📅　7月14日(土) - 15日(日)</div>
+            <div class="cta-buttons">
+                <a href="#events" class="cta-button">
+                    ✨ イベントを見る
+                </a>
+                <a href="#schedule" class="cta-button secondary">
+                    📋 スケジュール
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="events">
+        <div class="container">
+            <div class="section-bg">
+                <div class="section-content">
+                    <h2 class="section-title">Featured Events</h2>
+                    <p class="section-subtitle">心に残る特別な体験をお届けします</p>
+                    <div class="event-grid fade-in">
+                        <div class="event-card">
+                            <div class="event-icon">🎭</div>
+                            <h3>演劇部公演</h3>
+                            <p>「青春グラフィティ」- 高校生活の喜びと葛藤を描いた感動の物語。プロ並みの演技で魅せる渾身の舞台です。</p>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">🎵</div>
+                            <h3>音楽祭</h3>
+                            <p>軽音楽部、吹奏楽部、合唱部によるスペシャルライブ。ジャンルを超えた音楽の祭典をお楽しみください。</p>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">🍜</div>
+                            <h3>グルメストリート</h3>
+                            <p>各クラス自慢の創作料理が大集合。ラーメン、たこ焼き、スイーツまで、食べ歩きの楽園です。</p>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">🎨</div>
+                            <h3>アートギャラリー</h3>
+                            <p>美術部・写真部による作品展示。創造性あふれる作品群があなたの感性を刺激します。</p>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">👻</div>
+                            <h3>ホラーハウス</h3>
+                            <p>3年A組が贈る本格お化け屋敷「呪われた校舎」。心臓の弱い方はご遠慮ください...</p>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">🎪</div>
+                            <h3>縁日広場</h3>
+                            <p>射的、輪投げ、金魚すくい。懐かしい縁日の雰囲気で、子供から大人まで楽しめます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule">
+        <div class="container">
+            <div class="section-bg">
+                <div class="section-content">
+                    <h2 class="section-title">Schedule</h2>
+                    <p class="section-subtitle">2日間のタイムテーブルをご確認ください</p>
+                    <div class="schedule-container fade-in">
+                        <div class="schedule-day">
+                            <div class="schedule-header">6月14日（土）</div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">9:00</div>
+                                <div class="schedule-event">
+                                    <h4>オープニングセレモニー</h4>
+                                    <p>体育館にて盛大に開幕</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">10:00</div>
+                                <div class="schedule-event">
+                                    <h4>一般公開スタート</h4>
+                                    <p>全館オープン・模擬店営業開始</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">11:30</div>
+                                <div class="schedule-event">
+                                    <h4>音楽祭 第1部</h4>
+                                    <p>体育館メインステージ</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">13:00</div>
+                                <div class="schedule-event">
+                                    <h4>演劇部公演</h4>
+                                    <p>講堂特設ステージ</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">15:00</div>
+                                <div class="schedule-event">
+                                    <h4>音楽祭 第2部</h4>
+                                    <p>軽音楽部ライブタイム</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">16:30</div>
+                                <div class="schedule-event">
+                                    <h4>1日目終了</h4>
+                                    <p>明日もお楽しみに！</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="schedule-day">
+                            <div class="schedule-header">6月15日（日）</div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">9:00</div>
+                                <div class="schedule-event">
+                                    <h4>2日目スタート</h4>
+                                    <p>全館オープン</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">10:30</div>
+                                <div class="schedule-event">
+                                    <h4>ダンスパフォーマンス</h4>
+                                    <p>中庭野外ステージ</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">12:00</div>
+                                <div class="schedule-event">
+                                    <h4>ランチタイム</h4>
+                                    <p>グルメストリートで特別メニュー</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">14:00</div>
+                                <div class="schedule-event">
+                                    <h4>後夜祭</h4>
+                                    <p>全校生徒による感動のフィナーレ</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">16:00</div>
+                                <div class="schedule-event">
+                                    <h4>クロージング</h4>
+                                    <p>大谷祭2025 グランドフィナーレ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="info">
+        <div class="container">
+            <div class="section-bg">
+                <div class="section-content">
+                    <h2 class="section-title">Information</h2>
+                    <p class="section-subtitle">ご来場に必要な情報をまとめました</p>
+                    <div class="info-grid fade-in">
+                        <div class="info-card">
+                            <h3>📅 開催日程</h3>
+                            <p>2025年7月14日(土) - 15日(日)<br>
+                            時間：9:00 - 16:30<br>
+                            雨天決行</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>📍 アクセス</h3>
